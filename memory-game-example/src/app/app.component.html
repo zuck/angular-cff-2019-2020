@@ -1,0 +1,49 @@
+<div class="container">
+  <h1>Memory Game</h1>
+  <app-btn *ngIf="showBtn" (clicked)="showMsg($event)"></app-btn>
+  <div>{{ msgToBeShown }}</div>
+  <div class="game-board">
+    <div class="row mb-4">
+      <div class="col">
+        <app-card [image]="images[0]" [flipped]="isFlipped(0)" [idx]="0" (clicked)="clickOnCard($event)"></app-card>
+      </div>
+      <div class="col">
+        <app-card [image]="images[1]" [flipped]="isFlipped(1)" [idx]="1" (clicked)="clickOnCard($event)"></app-card>
+      </div>
+      <div class="col">
+        <app-card [image]="images[2]" [flipped]="isFlipped(2)" [idx]="2" (clicked)="clickOnCard($event)"></app-card>
+      </div>
+      <div class="col">
+        <app-card [image]="images[3]" [flipped]="isFlipped(3)" [idx]="3" (clicked)="clickOnCard($event)"></app-card>
+      </div>
+    </div>
+    <div class="row mb-4">
+      <div class="col">
+        <app-card [image]="images[4]" [flipped]="isFlipped(4)" [idx]="4" (clicked)="clickOnCard($event)"></app-card>
+      </div>
+      <div class="col">
+        <app-card [image]="images[5]" [flipped]="isFlipped(5)" [idx]="5" (clicked)="clickOnCard($event)"></app-card>
+      </div>
+      <div class="col">
+        <app-card [image]="images[6]" [flipped]="isFlipped(6)" [idx]="6" (clicked)="clickOnCard($event)"></app-card>
+      </div>
+      <div class="col">
+        <app-card [image]="images[7]" [flipped]="isFlipped(7)" [idx]="7" (clicked)="clickOnCard($event)"></app-card>
+      </div>
+    </div>
+    <div class="row mb-4">
+      <div class="col">
+        <app-card [image]="images[8]" [flipped]="isFlipped(8)" [idx]="8" (clicked)="clickOnCard($event)"></app-card>
+      </div>
+      <div class="col">
+        <app-card [image]="images[9]" [flipped]="isFlipped(9)" [idx]="9" (clicked)="clickOnCard($event)"></app-card>
+      </div>
+      <div class="col">
+        <app-card [image]="images[10]" [flipped]="isFlipped(10)" [idx]="10" (clicked)="clickOnCard($event)"></app-card>
+      </div>
+      <div class="col">
+        <app-card [image]="images[11]" [flipped]="isFlipped(11)" [idx]="11" (clicked)="clickOnCard($event)"></app-card>
+      </div>
+    </div>
+  </div>
+</div>

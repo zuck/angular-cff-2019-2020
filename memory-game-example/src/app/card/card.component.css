@@ -1,0 +1,11 @@
+.card {
+  cursor: pointer;
+}
+
+.card-img-top {
+  visibility: hidden;
+}
+
+.front .card-img-top {
+  visibility: visible;
+}
