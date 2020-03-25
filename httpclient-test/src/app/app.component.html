@@ -1,0 +1,5 @@
+<ul>
+  <li *ngFor="let user of users">
+    <a [href]="'mailto:' + user.email" [title]="user.phone">{{ user.name }}</a>
+  </li>
+</ul>
