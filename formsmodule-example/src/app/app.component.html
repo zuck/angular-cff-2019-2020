@@ -1,0 +1,32 @@
+<div class="container">
+  <form (ngSubmit)="onSubmit()" #myForm="ngForm">
+    <input
+      id="name"
+      class="form-control"
+      name="name"
+      type="text"
+      required
+      [(ngModel)]="model.name"
+    />
+    <input
+      id="score"
+      class="form-control"
+      name="score"
+      type="numeric"
+      required
+      [(ngModel)]="model.score"
+    />
+    <div style="display: flex; justify-content: flex-end">
+      <button
+        [class]="'btn ' + (myForm.form.valid ? 'btn-primary' : 'btn-danger')"
+        type="submit"
+        [disabled]="!myForm.form.valid"
+      >Save1</button>
+      <button
+        class="btn btn-secondary"
+        type="submit"
+        [disabled]="!myForm.form.valid"
+      >Save2</button>
+    </div>
+  </form>
+</div>
