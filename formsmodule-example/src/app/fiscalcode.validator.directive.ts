@@ -16,7 +16,7 @@ import {
 })
 export class FiscalCodeDirective implements Validator {
   validate(formGroup: FormGroup): ValidationErrors {
-    if (!formGroup) return null
+    if (!formGroup || !formGroup.value) return null
 
     const errors = {}
 
