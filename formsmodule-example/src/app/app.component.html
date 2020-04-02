@@ -1,31 +1,68 @@
-<div class="container">
+<div class="container" style="width: 400px">
   <form (ngSubmit)="onSubmit()" #myForm="ngForm">
-    <input
-      id="name"
-      class="form-control"
-      name="name"
-      type="text"
-      required
-      [(ngModel)]="model.name"
-    />
-    <input
-      id="score"
-      class="form-control"
-      name="score"
-      type="numeric"
-      required
-      [(ngModel)]="model.score"
-    />
+    <div class="form-group">
+      <label>Codice fiscale</label>
+      <input
+        id="fiscalcode"
+        [class]="'form-control' + (fiscalcode.invalid ? ' is-invalid' : '')"
+        name="fiscalcode"
+        type="text"
+        required
+        fiscalCode
+        [(ngModel)]="model.fiscalcode"
+        #fiscalcode="ngModel"
+      />
+      <div *ngIf="fiscalcode.invalid" class="alert alert-danger">
+        <span *ngIf="fiscalcode.errors.required">
+          Valore mancante
+          <br/>
+        </span>
+        <span *ngIf="fiscalcode.errors.minLength">
+          Il codice fiscale deve essere di almeno {{ fiscalcode.errors.minLength }} caratteri
+          <br/>
+        </span>
+        <span *ngIf="fiscalcode.errors.lowercase">
+          Il codice fiscale non può contenere caratteri minuscoli
+          <br/>
+        </span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Punteggio</label>
+      <input
+        id="score"
+        [class]="'form-control' + (score.invalid ? ' is-invalid' : '')"
+        name="score"
+        type="number"
+        [lte]="100"
+        [(ngModel)]="model.score"
+        #score="ngModel"
+      />
+      <div *ngIf="score.invalid" class="alert alert-danger">
+        <span *ngIf="score.errors.required">
+          Valore mancante
+          <br/>
+        </span>
+        <span *ngIf="score.errors.gt5">
+          Valore deve essere minore o uguale a 5
+          <br/>
+        </span>
+        <span *ngIf="score.errors.lte">
+          Valore deve essere minore o uguale a {{ score.errors.lte }}
+          <br/>
+        </span>
+      </div>
+    </div>
     <div style="display: flex; justify-content: flex-end">
       <button
         [class]="'btn ' + (myForm.form.valid ? 'btn-primary' : 'btn-danger')"
         type="submit"
-        [disabled]="!myForm.form.valid"
+        [disabled]="myForm.form.invalid"
       >Save1</button>
       <button
         class="btn btn-secondary"
         type="submit"
-        [disabled]="!myForm.form.valid"
+        [disabled]="myForm.form.invalid"
       >Save2</button>
     </div>
   </form>

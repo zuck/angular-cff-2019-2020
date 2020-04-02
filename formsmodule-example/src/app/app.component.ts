@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
   title = 'formsmodule-example';
   model = {
-    name: 'Test',
+    fiscalcode: 'Test',
     score: 0
   }
 
@@ -16,6 +16,6 @@ export class AppComponent implements OnInit {
   }
 
   onSubmit () {
-    alert(this.model.name + ': ' + this.model.score)
+    alert(this.model.fiscalcode + ': ' + this.model.score)
   }
 }
